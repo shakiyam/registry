@@ -1,3 +1,5 @@
 *.gz
 *.zip
+.env
+auth/
 certs/
