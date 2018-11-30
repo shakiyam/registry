@@ -12,7 +12,7 @@ catalog: ## Show catalog
 	@echo -e "\033[36m$@\033[0m"
 	@./catalog.sh
 
-provision: ## Provision registry
+configure: ## Configure registry
 	@echo -e "\033[36m$@\033[0m"
 	@./provision.sh
 
