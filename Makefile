@@ -14,7 +14,7 @@ catalog: ## Show catalog
 
 configure: ## Configure registry
 	@echo -e "\033[36m$@\033[0m"
-	@./provision.sh
+	@./configure.sh
 
 start: ## Start registry
 	@echo -e "\033[36m$@\033[0m"
