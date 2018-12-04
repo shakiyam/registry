@@ -1,7 +1,7 @@
 Docker Registry Sample
 ======================
 
-Sample of private Docker registry with basic authentication by self-signed certificate
+Sample of private Docker registry with basic authentication and UI by self-signed certificate
 
 Requirement
 -----------
@@ -39,8 +39,16 @@ Pull the example image from the Docker Hub registry and push it to your private 
 ```console
 docker pull hello-world:latest
 docker tag hello-world:latest ${registry_host}/hello-world:latest
-docker push ${registry_host}/shellcheck:latest
+docker push ${registry_host}/hello-world:latest
 ```
+
+Web UI
+------
+
+The registry UI is reachable http://localhost:8000/
+
+![crane_operator.png](crane_operator.png)
+
 
 Author
 ------

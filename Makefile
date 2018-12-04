@@ -8,29 +8,25 @@ ALL_TARGETS := $(shell egrep -o ^[0-9A-Za-z_-]+: $(MAKEFILE_LIST) | sed 's/://')
 
 .PHONY: $(ALL_TARGETS)
 
-catalog: ## Show catalog
-	@echo -e "\033[36m$@\033[0m"
-	@./catalog.sh
-
 configure: ## Configure registry
 	@echo -e "\033[36m$@\033[0m"
 	@./configure.sh
 
 start: ## Start registry
 	@echo -e "\033[36m$@\033[0m"
-	@docker-compose up -d
+	@./docker-compose-wrapper.sh up -d
 
 status: ## Show status
 	@echo -e "\033[36m$@\033[0m"
-	@docker-compose ps
+	@./docker-compose-wrapper.sh ps
 
 stop: ## Stop registry
 	@echo -e "\033[36m$@\033[0m"
-	@docker-compose stop
+	@./docker-compose-wrapper.sh stop
 
 restart: ## Restart registry
 	@echo -e "\033[36m$@\033[0m"
-	@docker-compose restart
+	@./docker-compose-wrapper.sh restart
 
 shellcheck: ## Check for shell scripts
 	@echo -e "\033[36m$@\033[0m"

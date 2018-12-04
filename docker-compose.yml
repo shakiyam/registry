@@ -16,5 +16,22 @@ services:
       - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/ca.crt
       - REGISTRY_HTTP_TLS_KEY=/certs/ca.key
       - REGISTRY_STORAGE_DELETE_ENABLED=true
+  web:
+    depends_on:
+      - registry
+    image: parabuzzle/craneoperator:latest
+    ports:
+      - "8000:80"
+    environment:
+      - REGISTRY_HOST=registry
+      - REGISTRY_PORT=443
+      - REGISTRY_PROTOCOL=https
+      - SSL_VERIFY=false
+      - REGISTRY_PUBLIC_URL=registry
+      - REGISTRY_USERNAME=${AUTH_USERNAME}
+      - REGISTRY_PASSWORD=${AUTH_PASSWORD}
+      - USERNAME=${AUTH_USERNAME}
+      - PASSWORD=${AUTH_PASSWORD}
+      - REGISTRY_ALLOW_DELETE=true
 volumes:
   registry:
