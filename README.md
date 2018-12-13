@@ -21,25 +21,19 @@ make start
 Using your private Docker registry from client
 ----------------------------------------------
 
-Connect to your Docker registry from the client referring to the following.
+Edit sample.env and rename it to .env. Then, connect to your Docker registry by the following commands.
 
 ```console
-registry_host=registry.example.com
-registry_owner=registry
-registry_home=/home/registry
-
-sudo scp "${registry_owner}@${registry_host}:${registry_home}/certs/ca.crt" "/etc/pki/ca-trust/source/anchors/${registry_host}.crt"
-sudo update-ca-trust
-sudo systemctl restart docker
-docker login ${registry_host}
+./configure_client.sh
 ```
 
 Pull the example image from the Docker Hub registry and push it to your private Docker registry.
 
 ```console
+. ./.env
 docker pull hello-world:latest
-docker tag hello-world:latest ${registry_host}/hello-world:latest
-docker push ${registry_host}/hello-world:latest
+docker tag hello-world:latest ${REGISTRY_HOST}/hello-world:latest
+docker push ${REGISTRY_HOST}/hello-world:latest
 ```
 
 Web UI
