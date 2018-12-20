@@ -16,6 +16,7 @@ services:
       - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/ca.crt
       - REGISTRY_HTTP_TLS_KEY=/certs/ca.key
       - REGISTRY_STORAGE_DELETE_ENABLED=true
+    restart: always
   web:
     depends_on:
       - registry
@@ -33,5 +34,6 @@ services:
       - USERNAME=${AUTH_USERNAME}
       - PASSWORD=${AUTH_PASSWORD}
       - REGISTRY_ALLOW_DELETE=true
+    restart: always
 volumes:
   registry:
