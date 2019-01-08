@@ -1,7 +1,7 @@
 Docker Registry Sample
 ======================
 
-Sample of private Docker registry with basic authentication and UI by self-signed certificate
+Simple setup scripts for private Docker registry with self-signed certificate, basic authentication, Web UI
 
 Requirement
 -----------
@@ -42,7 +42,6 @@ Web UI
 The registry UI is reachable http://localhost:8000/
 
 ![crane_operator.png](crane_operator.png)
-
 
 Author
 ------
