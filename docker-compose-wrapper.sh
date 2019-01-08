@@ -6,9 +6,8 @@ if [[ -e .env ]]; then
   . .env
 fi
 
-if [[ -z "${AUTH_USERNAME:-}" || -z "${AUTH_PASSWORD:-}" ]]; then
-  echo "AUTH_USERNAME or AUTH_PASSWORD is not defined."
-  exit 1
-fi
+[[ -n "${AUTH_USERNAME:-}" ]] || { echo "AUTH_USERNAME is not defined."; exit 1; }
+[[ -n "${AUTH_PASSWORD:-}" ]] || { echo "AUTH_PASSWORD is not defined."; exit 1; }
+[[ -n "${REGISTRY_HOST:-}" ]] || { echo "REGISTRY_HOST is not defined."; exit 1; }
 
 docker-compose "$@"
